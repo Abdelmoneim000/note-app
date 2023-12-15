@@ -5,6 +5,7 @@ import Showdown from "showdown"
 export default function Editor({ currentNote, updateNote }) {
     const [selectedTab, setSelectedTab] = React.useState("write")
 
+    // Convert the markdown text and show it in preview section...
     const converter = new Showdown.Converter({
         tables: true,
         simplifiedAutoLink: true,
@@ -12,6 +13,7 @@ export default function Editor({ currentNote, updateNote }) {
         tasklists: true,
     })  
 
+    // Create the React markdown Editor
     return (
         <section className="pane editor">
             <ReactMde

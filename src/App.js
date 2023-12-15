@@ -12,11 +12,12 @@ export default function App() {
     const [currentNoteId, setCurrentNoteId] = React.useState(
         (notes[0] && notes[0].id) || ""
     )
-    
+    // Track all the notes and set the most active one...
     React.useEffect(() => {
         localStorage.setItem("notes", JSON.stringify(notes))
     }, [notes])
     
+    // For Creating a new note using the setNotes and pushing it into localhost
     function createNewNote() {
         const newNote = {
             id: nanoid(),
@@ -41,11 +42,13 @@ export default function App() {
             return newArray
         })
     }
+    // Keep all the notes except the one deleted...
     function deleteNote(event, noteId) {
         event.stopPropagation()
         setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId))
     }
     
+    // When choosing a Note, We find it using this function...
     function findCurrentNote() {
         return notes.find(note => {
             return note.id === currentNoteId

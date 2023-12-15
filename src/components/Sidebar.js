@@ -1,6 +1,7 @@
 import React from "react"
 
 export default function Sidebar(props) {
+    // Get the list of notes and show it in the Side-Bar
     const noteElements = props.notes.map((note, index) => (
         <div key={note.id}>
             <div
